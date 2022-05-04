@@ -1,6 +1,6 @@
 [Go to the Lecture!](https://www.udemy.com/course/graphql-bootcamp/)
 
-## What I Learn
+## Progress
 
 #### 2022/05/04
 
