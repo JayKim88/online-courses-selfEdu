@@ -19,3 +19,17 @@
 - **Why we need to use Typescript?**
 
   <img src="./src/image/section2/2_3.png" width="400px"/>
+
+#### 2022/05/05
+
+<b>Section3: Type Annotations in Action</b>, 16 - 20
+
+<img src="./src/image/section3/3-1.png" width="400px"/>
+
+Type Inference?
+
+<img src="./src/image/section3/3-2.png" width="400px"/>
+
+When to use?
+
+<img src="./src/image/section3/3-3.png" width="400px"/>
