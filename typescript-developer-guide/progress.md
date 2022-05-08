@@ -38,3 +38,17 @@ When to use?
 <b>Section4: Annotations With Functions and Objects</b>
 <b>Section5: Mastering Typed Arrays</b>
 <b>Section6: Tuples in Typescript</b>
+
+#### 2022/05/08
+
+<b>Section7: The All-Important Interface</b>
+
+<img src="./src/image/section7/7-1.png" width="400px"/>
+
+<img src="./src/image/section7/7-2.png" width="400px"/>
+
+<b>Section8: Building Functionality with Classes</b>
+
+<img src="./src/image/section8/8-1.png" width="400px"/>
+
+<img src="./src/image/section8/8-2.png" width="400px"/>
