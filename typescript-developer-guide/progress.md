@@ -52,3 +52,15 @@ When to use?
 <img src="./src/image/section8/8-1.png" width="400px"/>
 
 <img src="./src/image/section8/8-2.png" width="400px"/>
+
+#### 2022/05/14
+
+<b>Section9: Design Patterns with Typescript</b>, 51 - 64
+
+- Install dependencies
+  - "@types/faker"
+  - "@types/google.maps"
+  - "faker"
+- Use googlemap api
+- Make necessary Classes
+- Learn how to explore type definition files
