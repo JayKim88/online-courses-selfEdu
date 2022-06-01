@@ -64,3 +64,9 @@ When to use?
 - Use googlemap api
 - Make necessary Classes
 - Learn how to explore type definition files
+
+#### 2022/06/01
+
+<b>Section9: Design Patterns with Typescript</b>, 65 - 69
+
+- Add Markers for User and Company
