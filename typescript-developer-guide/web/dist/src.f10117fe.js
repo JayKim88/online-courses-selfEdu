@@ -4837,7 +4837,71 @@ function (_super) {
 }(Model_1.Model);
 
 exports.User = User;
-},{"./Collection":"src/models/Collection.ts","./Eventing":"src/models/Eventing.ts","./ApiSync":"src/models/ApiSync.ts","./Attributes":"src/models/Attributes.ts","./Model":"src/models/Model.ts"}],"src/index.ts":[function(require,module,exports) {
+},{"./Collection":"src/models/Collection.ts","./Eventing":"src/models/Eventing.ts","./ApiSync":"src/models/ApiSync.ts","./Attributes":"src/models/Attributes.ts","./Model":"src/models/Model.ts"}],"src/views/UserForm.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UserForm = void 0;
+
+var UserForm =
+/** @class */
+function () {
+  function UserForm(parent, model) {
+    this.parent = parent;
+    this.model = model;
+  }
+
+  UserForm.prototype.eventsMap = function () {
+    return {
+      "click:button": this.onButtonClick,
+      "mouseenter:h1": this.onHeaderHover
+    };
+  };
+
+  UserForm.prototype.onButtonClick = function () {
+    console.log("Hi there");
+  };
+
+  UserForm.prototype.onHeaderHover = function () {
+    console.log("h1 was hovered over!");
+  };
+
+  UserForm.prototype.template = function () {
+    return "\n          <div>\n            <h1>User Form</h1>\n            <div>User name: ".concat(this.model.get("name"), "</div>\n            <div>User age: ").concat(this.model.get("age"), "</div>\n            <input/>\n            <button>Click Me</button>\n          </div>\n        ");
+  };
+
+  UserForm.prototype.bindEvents = function (fragment) {
+    var eventsMap = this.eventsMap();
+
+    var _loop_1 = function _loop_1(eventKey) {
+      var _a = eventKey.split(":"),
+          eventName = _a[0],
+          selector = _a[1];
+
+      fragment.querySelectorAll(selector).forEach(function (element) {
+        element.addEventListener(eventName, eventsMap[eventKey]);
+      });
+    };
+
+    for (var eventKey in eventsMap) {
+      _loop_1(eventKey);
+    }
+  };
+
+  UserForm.prototype.render = function () {
+    var templateElement = document.createElement("template");
+    templateElement.innerHTML = this.template();
+    this.bindEvents(templateElement.content);
+    this.parent.append(templateElement.content);
+  };
+
+  return UserForm;
+}();
+
+exports.UserForm = UserForm;
+},{}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4846,12 +4910,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./models/User");
 
-var collection = User_1.User.buildUserCollection();
-collection.on("change", function () {
-  console.log(collection);
+var UserForm_1 = require("./views/UserForm");
+
+var user = User_1.User.buildUser({
+  name: "jay yo",
+  age: 30
 });
-collection.fetch();
-},{"./models/User":"src/models/User.ts"}],"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var userForm = new UserForm_1.UserForm(document.getElementById("root"), user);
+userForm.render();
+},{"./models/User":"src/models/User.ts","./views/UserForm":"src/views/UserForm.ts"}],"../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4879,7 +4946,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52128" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -5055,5 +5122,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
+},{}]},{},["../../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.ts"], null)
 //# sourceMappingURL=/src.f10117fe.js.map
