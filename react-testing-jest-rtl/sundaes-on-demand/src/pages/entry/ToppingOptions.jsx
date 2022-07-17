@@ -1,6 +1,6 @@
-import { Col } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 
-export default function ToppingOptions({ name, imagePath }) {
+export default function ToppingOptions({ name, imagePath, updateItemCount }) {
   return (
     <Col
       xs={12}
@@ -18,6 +18,13 @@ export default function ToppingOptions({ name, imagePath }) {
         src={`http://localhost:3030/${imagePath}`}
         alt={`${name} topping`}
       />
+      <Form.Group controlId={`${name}-topping-checkbox`}>
+        <Form.Check
+          type="checkbox"
+          onChange={(e) => updateItemCount(name, e.target.checked ? 1 : 0)}
+          label={name}
+        />
+      </Form.Group>
     </Col>
   );
 }
