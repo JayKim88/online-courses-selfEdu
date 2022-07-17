@@ -1,11 +1,9 @@
 import {
   render,
   screen,
-  fireEvent,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import SummaryForm from "../SummaryForm";
-// userEvent.click not working properly at first clicking action
 import userEvent from "@testing-library/user-event";
 
 test("Initial conditions", () => {
@@ -19,17 +17,17 @@ test("Initial conditions", () => {
   expect(confirmButton).toBeDisabled();
 });
 
-test("Checkbox enables button on first click and disables on second click", () => {
+test("Checkbox enables button on first click and disables on second click", async () => {
   render(<SummaryForm />);
   const checkbox = screen.getByRole("checkbox", {
     name: /terms and conditions/i,
   });
   const confirmButton = screen.getByRole("button", { name: /confirm order/i });
 
-  fireEvent.click(checkbox);
+  await userEvent.click(checkbox);
   expect(confirmButton).toBeEnabled();
 
-  fireEvent.click(checkbox);
+  await userEvent.click(checkbox);
   expect(confirmButton).toBeDisabled();
 });
 
