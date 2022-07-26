@@ -27,7 +27,3 @@ Big O of Arrays
 - Removal - It depends...
 - Searching - O(N)
 - Access - O(1)
-
-<b>Section4: Problem Solving Approach</b>
-
-<img src="./src/img/4-1.png" width="600px"/>
