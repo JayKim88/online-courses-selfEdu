@@ -35,6 +35,11 @@ describe("cleanNumbers()", () => {
     const cleanedNumbers = cleanNumbers(numberValues);
 
     expect(cleanedNumbers[0]).toBeTypeOf("number");
+    /**
+     * @description Use "toEqual" method for deep-comparison on values not address of the object
+     * In contrary, toBe method does shallow comparison
+     *  */
+    expect(cleanedNumbers).toEqual([1, 2]);
   });
 
   it("should throw an error if an array with at least one empty string is provided", () => {
