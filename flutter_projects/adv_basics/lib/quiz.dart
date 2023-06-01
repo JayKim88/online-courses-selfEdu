@@ -21,7 +21,8 @@ class _QuizState extends State<Quiz> {
   //   super.initState();
   // }
 
-  var activeScreen = 'start-screen';
+  // var activeScreen = 'start-screen';
+  var activeScreen = 'questions-screen';
 
   void switchScreen() {
     setState(() {
