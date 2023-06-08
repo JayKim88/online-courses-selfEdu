@@ -25,8 +25,8 @@ class _QuizState extends State<Quiz> {
   //   super.initState();
   // }
 
-  // var activeScreen = 'start-screen';
-  var activeScreen = 'questions-screen';
+  var activeScreen = 'start-screen';
+  // var activeScreen = 'questions-screen';
 
   void switchScreen() {
     setState(() {
@@ -39,10 +39,18 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        selectedAnswers = [];
         activeScreen = 'results-screen';
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(
+      () {
+        selectedAnswers = [];
+        activeScreen = ' -screen';
+      },
+    );
   }
 
   @override
@@ -56,7 +64,10 @@ class _QuizState extends State<Quiz> {
     }
 
     if (activeScreen == 'results-screen') {
-      screenWidget = const ResultsScreen();
+      screenWidget = ResultsScreen(
+        chosenAnswers: selectedAnswers,
+        onRestart: restartQuiz,
+      );
     }
 
     return MaterialApp(
